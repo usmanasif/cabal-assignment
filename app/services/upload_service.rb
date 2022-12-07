@@ -10,7 +10,7 @@ class UploadService
       CSV.read(file, headers: true).each do |record|
         company = Company.find_or_create_by!(name: record['company_name'])
         designation = Designation.find_or_create_by!(title: record['company_title'], company_id: company.id)
-        member = Member.create!(
+        member = Member.find_or_create_by!(
           firstname: record['first_name'],
           lastname: record['last_name'],
           email: record['email'],

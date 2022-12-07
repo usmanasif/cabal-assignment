@@ -85,13 +85,13 @@ export default DataGrid = ({ data, columns }) => {
           <thead>
             <tr>
               <td>No</td>
-              {columns.map((column) => (
+              {columns?.map((column) => (
                 <td style={styles.border}>{column}</td>
               ))}
             </tr>
           </thead>
           <tbody>
-            {data.map((member, idx) => renderFields(member, idx+1))}
+            {data?.map((member, idx) => renderFields(member, idx+1))}
           </tbody>
         </table>
       </div>

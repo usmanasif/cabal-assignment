@@ -9,8 +9,16 @@ export default CsvUploader = ({ setMembers }) => {
   const [columns, setColumns] = React.useState([])
 
   const uploadFile = async () => {
-    res = await uploadCsv(csvFile)
-    setMembers(res.data)
+    uploadCsv(csvFile)
+    .then(res => { 
+      console.log('test')
+      setMembers(res.data)
+      alert("Data uploaded Successfully")
+    })
+    .catch(e => {
+      alert(e.message)
+    })
+    
   }
 
   React.useEffect(() =>{
